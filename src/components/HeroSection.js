@@ -6,7 +6,7 @@ import'../App.css';
 function HeroSection() {
     return (
         <div className='hero-container'>
-            <video src='/videos/tech-background.mp4' autoPlay loop muted />
+            <video src='/videos/tech-background.mp4' autoPlay loop muted playsInline/>
             <h1>The Password Manager of the Future is Here</h1>
             <p>Now with the Power of Artificial Intelligence</p>
             <div className="hero-btns">
