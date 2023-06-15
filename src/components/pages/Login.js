@@ -1,6 +1,14 @@
 import React from "react";
 import '../../App.css';
+import LogInPage from "../LoginPage";
 
-export default function LogIn() {
-    return <h1 className="log-in">Log In</h1>;
+function LogIn() {
+    return (
+        <>
+            <LogInPage />
+        </>
+    )
 }
+
+
+export default LogIn;
