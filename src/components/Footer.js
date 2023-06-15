@@ -11,7 +11,7 @@ function Footer() {
                 Join the Revolution
             </p>
             <p className="footer-subscription-text">
-                Test Text
+                Subscribe Below
             </p>
             <div className="input-areas">
                 <form>

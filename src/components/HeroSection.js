@@ -7,8 +7,8 @@ function HeroSection() {
     return (
         <div className='hero-container'>
             <video src='/videos/tech-background.mp4' autoPlay loop muted />
-            <h1>The Password Manager of the Future</h1>
-            <p>Now With the Power of Artificial Intelligence</p>
+            <h1>The Password Manager of the Future is Here</h1>
+            <p>Now with the Power of Artificial Intelligence</p>
             <div className="hero-btns">
                 <Button className='btns'buttonStyle='btn--outline' 
                 buttonSize='btn--large'>Get Started</Button>
