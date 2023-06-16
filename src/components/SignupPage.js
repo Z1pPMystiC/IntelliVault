@@ -17,12 +17,12 @@ function SignUpPage() {
             console.log(error);
         })
     }
-    
+
     return (
         <div className="sign-up-container">
             <video src='/videos/tech-background-2.mp4' autoPlay loop muted playsInline/>
             <form className='sign-up-form' onSubmit={signUp}>
-                <h1>Sign Up</h1>
+                <h1>Create an Account</h1>
                 <input type="email" placeholder="Enter your email" 
                 value={email} onChange={(e) => setEmail(e.target.value)}
                 className='text-input'></input>

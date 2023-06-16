@@ -23,7 +23,7 @@ function LogInPage() {
         <div className="log-in-container">
             <video src='/videos/tech-background-2.mp4' autoPlay loop muted playsInline/>
             <form className='log-in-form' onSubmit={logIn}>
-                <h1>Log In</h1>
+                <h1>Enter the Vault</h1>
                 <input type="email" placeholder="Enter your email" 
                 value={email} onChange={(e) => setEmail(e.target.value)}
                 className='text-input'></input>
