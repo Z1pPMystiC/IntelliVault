@@ -21,13 +21,15 @@ function LogInPage() {
     
     return (
         <div className="log-in-container">
-            <img src='/images/tech-background.png'></img>
+            <video src='/videos/tech-background-2.mp4' autoPlay loop muted playsInline/>
             <form className='log-in-form' onSubmit={logIn}>
                 <h1>Log In</h1>
                 <input type="email" placeholder="Enter your email" 
-                value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                value={email} onChange={(e) => setEmail(e.target.value)}
+                className='text-input'></input>
                 <input type="password" placeholder="Enter your password" 
-                value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                value={password} onChange={(e) => setPassword(e.target.value)}
+                className='text-input'></input>
                 <button className='log-in-button' type="submit">Log In</button>
             </form>
         </div>
