@@ -10,7 +10,7 @@ function AuthDetails() {
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setAuthUser(user)
+                setAuthUser(user);
             } else {
                 setAuthUser(null);
             }
@@ -18,7 +18,7 @@ function AuthDetails() {
     }, [])
  
     return (
-        <div className='text'>{ authUser ? <p>Signed In </p> : <p>Signed Out</p>}</div>
+        <div className='text'>{ authUser ? <p>Signed In</p> : <p>Signed Out</p>}</div>
     )
 }
 

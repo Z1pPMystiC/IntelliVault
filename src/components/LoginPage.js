@@ -13,7 +13,7 @@ function LogInPage() {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            console.log(userCredential);
+            window.location.href = '/vault';
         }).catch((error) => {
             console.log(error);
         })

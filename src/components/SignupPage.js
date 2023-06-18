@@ -12,7 +12,7 @@ function SignUpPage() {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            console.log(userCredential);
+            window.location.href = '/vault';
         }).catch((error) => {
             console.log(error);
         })
