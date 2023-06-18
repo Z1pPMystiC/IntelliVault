@@ -1,10 +1,15 @@
 import React from "react";
 import '../../App.css';
+import VaultPage from "../VaultPage";
+import Footer from "../Footer";
 
 function Vault() {
+
+    
     return (
         <>
-            <h1 className="log-in">Logged In, Welcome</h1>
+            <VaultPage />
+            <Footer />
         </>
     )
 }
