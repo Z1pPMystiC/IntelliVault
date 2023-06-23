@@ -6,6 +6,7 @@ import { db } from "../firebase";
 function VaultPage() {
     
   const [password, setPassword] = useState("");
+  const [app, setApp] = useState("");
   const [passwords, setPasswords] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -13,23 +14,27 @@ function VaultPage() {
 
     try {
       const passDoc = await addDoc(collection(db, "passwords"), {
-        password: password,    
+        password: password,
+        app: app,   
       });
       alert('Password has been submitted ✔');
     } catch (e) {
       console.error("Error adding document: ", e);
     }
     setPassword("");
+    setApp("");
     fetchPasswords();
   }
 
   const fetchPasswords = async () => { 
     await getDocs(collection(db, "passwords"))
         .then((querySnapshot)=>{               
-            const newData = querySnapshot.docs
-                .map((doc) => ({...doc.data(), id:doc.id }));
-            setPasswords(newData);                
-            console.log(passwords, newData);
+          const items = [];  
+          querySnapshot.forEach((doc) => {
+            items.push(doc.data());
+          });
+            setPasswords(items);                
+            console.log(passwords, items);
         })
   }
 
@@ -42,9 +47,14 @@ function VaultPage() {
         <h1 className="password-title">Password Input 🔐</h1>
         <form className='password-form' onSubmit={handleSubmit}>
           <label>Password:   </label>
-          <input placeholder='Input Password Here' 
+          <input placeholder='Password' 
           value={password}
           onChange={(e) => setPassword(e.target.value)}/>
+
+          <label>Application:   </label>
+          <input placeholder='Application' 
+          value={app}
+          onChange={(e) => setApp(e.target.value)}/>
 
           <button type='submit'>Submit</button>
         </form>
@@ -52,7 +62,7 @@ function VaultPage() {
           {
               passwords?.map((password,i)=>(
                   <p key={i}>
-                      {password.password}
+                      {password.app}: {password.password}
                   </p>
               ))
           }
