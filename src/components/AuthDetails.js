@@ -20,12 +20,6 @@ function AuthDetails() {
             listen();
         }
     }, []);
-    
-    const userSignOut = () => {
-        signOut(auth).then(() => {
-            console.log("Successfully signed out");
-        }).catch(error => console.log(error))
-    }
 
     return (
         <div className='text'>{ authUser ? <p>Signed In</p> : <p>Signed Out</p>}</div>
