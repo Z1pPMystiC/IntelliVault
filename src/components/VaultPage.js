@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './VaultPage.css';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../firebase"; 
 
 function VaultPage() {
     
   const [password, setPassword] = useState("");
+  const [passwords, setPasswords] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +20,22 @@ function VaultPage() {
       console.error("Error adding document: ", e);
     }
     setPassword("");
+    fetchPasswords();
   }
+
+  const fetchPasswords = async () => { 
+    await getDocs(collection(db, "passwords"))
+        .then((querySnapshot)=>{               
+            const newData = querySnapshot.docs
+                .map((doc) => ({...doc.data(), id:doc.id }));
+            setPasswords(newData);                
+            console.log(passwords, newData);
+        })
+  }
+
+  useEffect(()=>{
+      fetchPasswords();
+  }, [])
 
   return (
     <div className='vault-container'>
@@ -32,6 +48,15 @@ function VaultPage() {
 
           <button type='submit'>Submit</button>
         </form>
+        <div className="password-content">
+          {
+              passwords?.map((password,i)=>(
+                  <p key={i}>
+                      {password.password}
+                  </p>
+              ))
+          }
+      </div>
     </div>
   )
 }
